@@ -1,4 +1,7 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
+
+//"strictPropertyInitialization": false, Newlemeye gerek kalmasın diye yapıyoruz.
+//diğer türlü currentCategory: Category = {categoryId:0, categoryName:" "} şeklinde oluşturmamız gerekli.
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -6,6 +9,7 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "strictPropertyInitialization": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
