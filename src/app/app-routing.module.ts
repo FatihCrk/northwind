@@ -5,7 +5,9 @@ import { ProductComponent } from './components/product/product.component';
 const routes: Routes = [
   // pathMatch:"full" eski versiyonlarda kullanıyoruz. Tam adres rota yapılanmasını sağlar.
   {path:"",pathMatch:"full", component:ProductComponent},
-  {path:"products",component:ProductComponent}
+  {path:"products",component:ProductComponent},
+//path:"pathyolu:değişkenId"
+  {path:"products/category/:categoryId",component:ProductComponent}
 ];
 
 @NgModule({

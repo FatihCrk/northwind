@@ -12,7 +12,7 @@ import { CategoryService } from 'src/app/services/category.service';
 //currentCategory:Category Classını atamak için tsconfig'de ayar yaptık. Diğer türlü currentCategory: Category = {categoryId:0, categoryName:" "} şeklinde tanımlamamız veya newlememiz gerekiyordu
 export class CategoryComponent implements OnInit {
   categories: Category[] = [];
-currentCategory : Category;
+currentCategory : Category | null = null;
   
   constructor(private categoryServices: CategoryService) { }
 
@@ -41,4 +41,19 @@ getCurrentCategoryClass(category:Category){
   }
   else{return "list-group-item"}
 }
+
+getAllCategoryClass() {
+  if (this.currentCategory === null) {
+      return "list-group-item active";
+  } else {
+      return "list-group-item";
+  }
+}
+
+
+reset() {
+  this.currentCategory = null;
+  this.getAllCategoryClass(); 
+}
+
 }
