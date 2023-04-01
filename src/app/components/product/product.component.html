@@ -6,22 +6,33 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>
+
+<div class="mb-3">
+  <label for="filterText" class="form-label">Ürün Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Aramak istediğiniz ürünü yazın.">
+</div>
+<div *ngIf="filterText" class="alert alert-success">{{filterText}} Aradınız</div>
+
 <table class="table">
   <thead>
     <tr>
       <th scope="col">Id</th>
-      <th scope="col">CategoryId</th>
-      <th scope="col">ProductName</th>
-      <th scope="col">UnitPrice</th>
-      <th scope="col">UnitsInStock</th>
+      <th scope="col">Kategoryi Id</th>
+      <th scope="col">Ürün Adı</th>
+      <th scope="col">Birim Fiyatı</th>
+      <th scope="col">Birim Stoğu</th>
+      <th scope="col">KDV dahil Fiyatı   </th>
+
     </tr>
   </thead>
 
-  <tr *ngFor="let product of products">
+  <tr *ngFor="let product of products | filterPipe:filterText">
     <th>{{ product.productId }}</th>
     <td>{{ product.categoryId }}</td>
-    <td>{{ product.productName }}</td>
-    <td>{{ product.unitsInStock }}</td>
-    <td>{{ product.unitPrice }}</td>
+    <td>{{ product.productName | uppercase }}</td>
+    <td>{{ product.unitPrice | number:'1.2-2'}} ₺</td>
+    <td>{{ product.unitsInStock  }}</td>
+  <td>{{ product.unitPrice | vatAdded :10 | number:'1.2-2'}} ₺</td>    <!-- KDVLİ Fiyat için değer gönderiyoruz. -->
+
   </tr>
 </table>

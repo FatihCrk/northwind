@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
@@ -15,6 +16,7 @@ export class ProductComponent implements OnInit {
 
   products: Product[] = [];
   dataLoaded = false;
+  filterText="";
 
   constructor(private productService: ProductService, 
     private activatedRoot: ActivatedRoute) { }
