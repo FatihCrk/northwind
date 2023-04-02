@@ -9,6 +9,9 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    // Tip Kontrolünü devre dışı bıraktık
+    "strictNullChecks": false,
+        // Newleme Kontrolünü devre dışı bıraktık
     "strictPropertyInitialization": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

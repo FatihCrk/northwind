@@ -1,4 +1,4 @@
-<div
+<div class="border-top"><div 
   class="d-flex align-items-center justify-content-center"
   *ngIf="dataLoaded == false"
 >
@@ -23,8 +23,11 @@
       <th scope="col">Birim Stoğu</th>
       <th scope="col">KDV dahil Fiyatı   </th>
 
+     <th scope="col">  </th>
     </tr>
   </thead>
+<tbody>
+
 
   <tr *ngFor="let product of products | filterPipe:filterText">
     <th>{{ product.productId }}</th>
@@ -33,6 +36,9 @@
     <td>{{ product.unitPrice | number:'1.2-2'}} ₺</td>
     <td>{{ product.unitsInStock  }}</td>
   <td>{{ product.unitPrice | vatAdded :10 | number:'1.2-2'}} ₺</td>    <!-- KDVLİ Fiyat için değer gönderiyoruz. -->
-
-  </tr>
+  <td><button (click)="addToCart(product)"  
+    type="button" class="btn btn-primary">Sepete Ekle</button>
+  </td>
+  </tr></tbody>
 </table>
+</div>
