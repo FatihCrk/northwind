@@ -40,17 +40,17 @@ export class ProductAddComponent implements OnInit {
 
       this.productService.add(productModel).subscribe({
         next: (response) => {
-          this.toastrService.success(response.message,"Başarılı");
+          this.toastrService.success(response.message, "Başarılı");
         },
         error: (responseError) => {
-          if (responseError.error.Errors.length>0) {
+          if (responseError.error.Errors.length > 0) {
             console.log(responseError.error.Errors)
             for (let i = 0; i < responseError.error.Errors.length; i++) {
-          
-              this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama Hatası");
+
+              this.toastrService.error(responseError.error.Errors[i].ErrorMessage, "Doğrulama Hatası");
             }
-           
-          
+
+
           }
         }
       })
