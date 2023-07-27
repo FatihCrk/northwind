@@ -46,6 +46,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     HttpClientModule,
 
     FormsModule,
+    ReactiveFormsModule,
 
 
     // Animasyonlu Toastr için ekledik.
