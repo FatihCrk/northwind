@@ -25,7 +25,6 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +45,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     HttpClientModule,
 
     FormsModule,
-
+    ReactiveFormsModule,
 
     // Animasyonlu Toastr için ekledik.
     ToastrModule.forRoot({ positionClass: "toast-bottom-right" }),
@@ -56,8 +55,6 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
   providers: [
     { provide: HTTP_INTERCEPTORS,useClass : AuthInterceptor,multi:true } //Tüm servisler için Enjekte ediyoruz. 
     //AuthInterceptor ve çoklu kullanımı aktif ediyoruz.
-
-
   ],
   bootstrap: [AppComponent]
 })
